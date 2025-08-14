@@ -1,0 +1,23 @@
+class Solution {
+    int maxLength(int arr[]) {
+        // code here
+        HashMap<Integer, Integer> h1 = new HashMap<>();
+        int sum = 0;
+        int maxlen = 0;
+        int i;
+        int len=arr.length;
+        for (i=0;i<len; i++){
+            sum+=arr[i];
+            if(sum==0) {
+                maxlen=i+1;
+            }
+            if(h1.containsKey(sum)) {
+                maxlen=Math.max(maxlen,i-h1.get(sum));
+            }
+            else{
+                h1.put(sum, i);
+            }
+        }
+        return maxlen;
+    }
+}
