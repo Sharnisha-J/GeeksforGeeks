@@ -1,0 +1,20 @@
+class Solution {
+    // Function to find the smallest positive number missing from the array.
+    public int missingNumber(int[] arr) {
+        // Your code here
+        int max=Arrays.stream(arr).max().orElse(0);
+        if(max<=0){
+            return 1;
+        }
+        Set<Integer> set=new HashSet<>();
+        for(int num:arr){
+            set.add(num);
+        }
+        for(int i=1;i<max;i++){
+            if(!set.contains(i)){
+                return i;
+            }
+        }
+        return max+1;
+    }
+}
