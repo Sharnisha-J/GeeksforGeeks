@@ -1,0 +1,22 @@
+class Solution {
+    public int kthElement(int a[], int b[], int k) {
+        // code here
+        int i=0,j=0,n=a.length,m=b.length,ans,c=0;
+        while(true){
+            int x=i<n?a[i]:Integer.MAX_VALUE;
+            int y=j<m?b[j]:Integer.MAX_VALUE;
+            if(x<y){
+                i++;
+                ans=x;
+            }
+            else{
+                j++;
+                ans=y;
+            }
+            c++;
+            if(c==k){
+                return ans;
+            }
+        }
+    }
+}
