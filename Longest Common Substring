@@ -1,0 +1,21 @@
+// User function Template for Java
+
+class Solution {
+    public int longestCommonSubstr(String s1, String s2) {
+        // code here
+        int[][] cssmat=new int[s1.length()+1][s2.length()+1];
+        int res=0;
+        for(int row=1;row<=s1.length();row++){
+            for(int col=1;col<=s2.length();col++){
+                if(s1.charAt(row-1)==s2.charAt(col-1)){
+                    cssmat[row][col]=cssmat[row-1][col-1]+1;
+                    res=Math.max(res,cssmat[row][col]);
+                }
+                else{
+                    cssmat[row][col]=0;
+                }
+            }
+        }
+        return res;
+    }
+}
